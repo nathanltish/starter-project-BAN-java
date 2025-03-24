@@ -38,7 +38,6 @@ public class Main
   public static void main(String[] args)
   {
 
-
     /***** INTRO SECTION *****/
     System.out.println("===================================");
     System.out.println("  Welcome to Global Currency Converter");
@@ -74,7 +73,7 @@ public class Main
 
 
     /***** OUTPUT SECTION *****/
-    System.out.printf("\n%s %s is equal to %s\n", formatCurrecny(baseCurrency, baseAmount), baseCurrency, formatCurrency(targetCurrency, convertedAmount));
+    System.out.printf("\n%s %s is equal to %s\n", formatCurrency(baseCurrency, baseAmount), baseCurrency, formatCurrency(targetCurrency, convertedAmount));
     System.out.printf("\nThank you for using the Global Currency Converter!");
     InputHandler.closeScanner();
   }
@@ -83,7 +82,8 @@ public class Main
   /***** STATIC METHODS *****/
 
   // Checks if the given currency abbreviation is valid
-  public static boolean isValidCurrency(String code) {
+  public static boolean isValidCurrency(String code) 
+  {
     return code.equals("USD") || code.equals("EUR") || code.equals("JPY")
   }
   
@@ -97,7 +97,7 @@ public class Main
 
     double result = 0.0;
 
-    if (orginal.equals("USD") && new_rate.equals("EUR")) {
+    if (orginal_rate.equals("USD") && new_rate.equals("EUR")) {
       result = amount * USD_TO_EUR;
     } else if (original_rate.equals("USD") && new_rate.equals("JPY")) {
       result = amount * USD_TO_JPY;
@@ -114,7 +114,7 @@ public class Main
   }
 
 // Returns a formatted currency string with the appropriate symbol
-public static String formatCurrecny(String currencyCode, double amount) 
+public static String formatCurrency(String currencyCode, double amount) 
 {
 String symbol;
 

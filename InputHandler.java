@@ -6,17 +6,20 @@
 
 import java.util.Scanner;
 
-class InputHandler {
+class InputHandler 
+{
   private static Scanner scanner = new Scanner(System.in);
 
-  /** Prompts the user for a string input and returns the result */
-  public static String getStringInput(String prompt) {
+  // Prompts the user for a string input and returns the result
+  public static String getStringInput(String prompt) 
+  {
     System.out.print(prompt);
     return scanner.nextLine();
   }
 
-  /** Prompts the user for a double input and keeps reprompting until valid input is given */
-  public static double getDoubleInput(String prompt) {
+  // Prompts the user for a double input and keeps reprompting until valid input is given
+  public static double getDoubleInput(String prompt) 
+  {
     double value = 0.0;
     while (true) {
       System.out.print(prompt);
@@ -31,7 +34,8 @@ class InputHandler {
   }
 
   /** Closes the scanner resource */
-  public static void closeScanner() {
+  public static void closeScanner() 
+  {
     scanner.close();
   }
 }
