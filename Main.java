@@ -75,11 +75,6 @@ public class Main
     /***** OUTPUT SECTION *****/
     System.out.printf("\n%s %s is equal to %s\n", formatCurrency(baseCurrency, baseAmount), baseCurrency, formatCurrency(targetCurrency, convertedAmount));
     System.out.printf("\nThank you for using the Global Currency Converter!");
-
-    // Demonstration of typecasting: explicitly cast a double to an int
-    // This casts the convertedAmount (a double) into an integer, truncating the decimal part.
-    int intConvertedAmount = (int) convertedAmount;
-    System.out.printf("Rounded converted amount (typecasting from double to int): %d\n", intConvertedAmount);
     InputHandler.closeScanner();
   }
 
