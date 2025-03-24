@@ -1,5 +1,5 @@
 /********************************************
-*	AUTHORS: Alex Burman, Nathan Tshishimbi, Brody Wilson
+*	AUTHOR: Nathan Tshishimbi
 * COLLABORATORS: Alex Burman, Nathan Tshishimbi, Brody Wilson
 *	LAST MODIFIED:	03/23/2025
 ********************************************/
@@ -20,9 +20,9 @@
 *	5. Displays the result using formatted output.
 *********************************************
 *	STATIC METHODS:
-*	- convertCurrency(String original_rate, String new_rate, double amount) <Name of who made>
-*	- formatCurrency(String currencyCode, double amount) <Name of who made>
-*	- isValidCurrency(String code) <Name of who made>
+*	- convertCurrency(String original_rate, String new_rate, double amount) <Alex>
+*	- formatCurrency(String currencyCode, double amount) <Nathan>
+*	- isValidCurrency(String code) <Brody>
 *********************************************/
 
 public class Main 
@@ -75,6 +75,11 @@ public class Main
     /***** OUTPUT SECTION *****/
     System.out.printf("\n%s %s is equal to %s\n", formatCurrency(baseCurrency, baseAmount), baseCurrency, formatCurrency(targetCurrency, convertedAmount));
     System.out.printf("\nThank you for using the Global Currency Converter!");
+
+    // Demonstration of typecasting: explicitly cast a double to an int
+    // This casts the convertedAmount (a double) into an integer, truncating the decimal part.
+    int intConvertedAmount = (int) convertedAmount;
+    System.out.printf("Rounded converted amount (typecasting from double to int): %d\n", intConvertedAmount);
     InputHandler.closeScanner();
   }
 
@@ -84,20 +89,22 @@ public class Main
   // Checks if the given currency abbreviation is valid
   public static boolean isValidCurrency(String code) 
   {
-    return code.equals("USD") || code.equals("EUR") || code.equals("JPY")
+    return code.equals("USD") || code.equals("EUR") || code.equals("JPY");
   }
   
   // Converts from one currency to another using the preset exchange rates
   public static double convertCurrency(String original_rate, String new_rate, double amount) 
   {
-    if(original_rate == new_rate) 
+    if(original_rate.equalsIgnoreCase(new_rate)) 
     {
+      System.out.printf("Hmm " + original_rate + " to " + new_rate + " is difficult... let me think. Calculating... Calculating... I think it's the same number.");
       return amount; // No conversion needed if currencies are the same 
     }
 
     double result = 0.0;
-
-    if (orginal_rate.equals("USD") && new_rate.equals("EUR")) {
+    
+    // Used if-else instead of switch due to simple nature of program
+    if (original_rate.equals("USD") && new_rate.equals("EUR")) {
       result = amount * USD_TO_EUR;
     } else if (original_rate.equals("USD") && new_rate.equals("JPY")) {
       result = amount * USD_TO_JPY;

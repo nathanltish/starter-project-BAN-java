@@ -1,7 +1,7 @@
 /********************************************
 *	InputHandler Class
 *********************************************
-*	Provides methods to handle user input.
+*	Provides methods to handle user input in a seperate.
 *********************************************/
 
 import java.util.Scanner;
